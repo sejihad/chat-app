@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://chat-app-api-dusky.vercel.app");
 
 function App() {
   const [message, setMessage] = useState("");
@@ -33,7 +33,10 @@ function App() {
   return (
     <div className="container mt-4">
       <h2 className="mb-4">Real-Time Chat</h2>
-      <div className="border rounded p-3 mb-3" style={{ height: "300px", overflowY: "scroll" }}>
+      <div
+        className="border rounded p-3 mb-3"
+        style={{ height: "300px", overflowY: "scroll" }}
+      >
         {messages.map((msg, i) => (
           <div key={i}>{msg}</div>
         ))}

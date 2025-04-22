@@ -9,7 +9,9 @@ app.use(
     origin: "https://chat-app-ui-blush.vercel.app",
   })
 );
-
+app.get("/", (req, res) => {
+  res.send("server is running");
+});
 const server = http.createServer(app);
 
 const io = new Server(server, {
