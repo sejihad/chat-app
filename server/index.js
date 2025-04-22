@@ -7,6 +7,7 @@ const app = express();
 app.use(
   cors({
     origin: "https://chat-app-ui-blush.vercel.app",
+    methods: ["GET", "POST"],
   })
 );
 app.get("/", (req, res) => {
