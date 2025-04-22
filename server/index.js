@@ -4,12 +4,7 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 
 const app = express();
-app.use(
-  cors({
-    origin: "https://chat-app-ui-blush.vercel.app",
-    methods: ["GET", "POST"],
-  })
-);
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("server is running");
 });
@@ -17,7 +12,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://chat-app-ui-blush.vercel.app",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
